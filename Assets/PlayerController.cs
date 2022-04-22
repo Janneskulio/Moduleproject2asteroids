@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerController : MonoBehaviour
@@ -28,33 +29,41 @@ public class PlayerController : MonoBehaviour
         float move_y = Input.GetAxis("Vertical");
         movement.constraints = RigidbodyConstraints2D.FreezePosition;
         movement.constraints = RigidbodyConstraints2D.FreezeRotation;
-       
+        
+        if(Input.GetButton("Fire2"))
+        {
+            nopeus = 15000;
+        }
+        else
+        {
+            nopeus = 30000;
+        }
 
         if(move_y > 0)
         {
             movement.constraints = RigidbodyConstraints2D.None;
-            movement.AddForce(Vector3.up * nopeus * Time.deltaTime);
+            movement.AddForce(Vector3.up * nopeus * Time.fixedDeltaTime);
             movement.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
        
         if(move_x > 0)
         {
             movement.constraints = RigidbodyConstraints2D.None;
-            movement.AddForce(Vector3.right * nopeus * Time.deltaTime);
+            movement.AddForce(Vector3.right * nopeus * Time.fixedDeltaTime);
             movement.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
        
         if(move_x < 0)
         {
             movement.constraints = RigidbodyConstraints2D.None;
-            movement.AddForce (Vector3.left * nopeus * Time.deltaTime);
+            movement.AddForce (Vector3.left * nopeus * Time.fixedDeltaTime);
             movement.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         
         if(move_y < 0)
         {
             movement.constraints = RigidbodyConstraints2D.None;
-            movement.AddForce (Vector3.down * nopeus * Time.deltaTime);
+            movement.AddForce (Vector3.down * nopeus * Time.fixedDeltaTime);
             movement.constraints = RigidbodyConstraints2D.FreezeRotation;
         }      
     }    
@@ -64,10 +73,12 @@ public class PlayerController : MonoBehaviour
         if(toher.tag == "meteori")
         {
             Destroy(Player);
+            SceneManager.LoadScene(0);
         }
         if (toher.tag == "enemyprojectile")
         {
             Destroy(Player);
+            SceneManager.LoadScene(0);
         }
         if(toher.tag == "raindrop")
         {
@@ -86,6 +97,17 @@ public class PlayerController : MonoBehaviour
         if(toher.tag == "earthquake")
         {
             Destroy(Player);
+            SceneManager.LoadScene(0);
+        }
+        if(toher.tag == "boss ammo")
+        {
+            Destroy(Player);
+            SceneManager.LoadScene(0);
+        }
+        if(toher.tag == "bosslaser")
+        {
+            Destroy(Player);
+            SceneManager.LoadScene(0);
         }
      
     }

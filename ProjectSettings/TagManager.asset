@@ -12,6 +12,8 @@ TagManager:
   - enemy
   - "sein\xE4"
   - earthquake
+  - bosslaser
+  - boss ammo
   layers:
   - Default
   - TransparentFX

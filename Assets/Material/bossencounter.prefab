@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2186959172029422394}
   m_Layer: 0
   m_Name: bossencounter
-  m_TagString: Untagged
+  m_TagString: bosslaser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,10 +123,22 @@ MonoBehaviour:
   BossProjectile: {fileID: 8546719730179773659, guid: b5bc208fe7a302647ab9a03dc352d276, type: 3}
   BossProjectileBody: {fileID: 545504971216370158, guid: b5bc208fe7a302647ab9a03dc352d276, type: 3}
   BossProjectileSpeed: 200
+  bossLaser: {fileID: 5744012501715662113, guid: f8d46662a71282c47b144aaa1531dad6, type: 3}
+  bossLaserBody: {fileID: 8935680392643749482, guid: f8d46662a71282c47b144aaa1531dad6, type: 3}
+  bosslaserspeed: 200
+  bossAbility2cd: 0
   direction1: {x: 0.5, y: -1, z: 0}
   direction2: {x: -0.5, y: -1, z: 0}
   direction3: {x: 0.2, y: -1, z: 0}
   direction4: {x: -0.2, y: -1, z: 0}
+  direction5: {x: 0.8, y: -1, z: 0}
+  direction6: {x: -0.8, y: -1, z: 0}
+  direction7: {x: 1.1, y: -1, z: 0}
+  direction8: {x: -1.1, y: -1, z: 0}
+  direction9: {x: 0, y: -1, z: 0}
+  direction10: {x: 0, y: -1, z: 0}
+  direction11: {x: -0.3, y: -1, z: 0}
+  direction12: {x: 0.3, y: -1, z: 0}
 --- !u!70 &2186959172029422394
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

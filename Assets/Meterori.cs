@@ -28,6 +28,7 @@ public class Meterori : MonoBehaviour
     [SerializeField] Rigidbody2D boulderbody;
     [SerializeField] Rigidbody2D boulderbody2;
     [SerializeField] float earthquaketime = 0.0f;
+    GameObject bossSpawn;
     
     void Start()
     {
@@ -59,7 +60,21 @@ public class Meterori : MonoBehaviour
         earthquaketime -= 1 * Time.deltaTime;
         raindropfalltime -= 1 * Time.deltaTime;
         meteorispawntime -= 1 * Time.deltaTime;
+        if(Score.instance.score % 400 == 0 && Score.instance.score > 0
+        && Score.instance.BossScorehold != Score.instance.score)
+        {
+            Score.instance.BossScorehold = Score.instance.score;
+            var bossSpawnLocation = new Vector3(0.0f,9.0f,0.0f);
+            bossSpawn = Instantiate(boss, bossSpawnLocation,Quaternion.identity);
+            bossbody = bossSpawn.GetComponent<Rigidbody2D>();
+            bossbody.AddForce(Vector3.down * bossSpeed);
+            bossSpawn.transform.Rotate(90,0,-180);
+            Debug.Log("happening");
+            Destroy(bossSpawn, 17); 
         
+        }
+        if(bossSpawn != true)
+        {
         if(Score.instance.score % 150 == 0 && Score.instance.score > 0
         && Score.instance.EarthquakeScoreHold != Score.instance.score)
         {
@@ -83,18 +98,8 @@ public class Meterori : MonoBehaviour
             }
         }
 
-        if(Score.instance.score % 50 == 0 && Score.instance.score > 0
-        && Score.instance.BossScorehold != Score.instance.score)
-        {
-            Score.instance.BossScorehold = Score.instance.score;
-            var bossSpawnLocation = new Vector3(0.0f,9.0f,0.0f);
-            GameObject bossSpawn = Instantiate(boss, bossSpawnLocation,Quaternion.identity);
-            bossbody = bossSpawn.GetComponent<Rigidbody2D>();
-            bossbody.AddForce(Vector3.down * bossSpeed);
-            bossSpawn.transform.Rotate(90,0,-180);
-            Debug.Log("happening"); 
         
-        }
+        
         if(raindropfalltime <= 0)
         {
             GameObject raindropklooni;
@@ -139,7 +144,7 @@ public class Meterori : MonoBehaviour
 
         }
 
-               
+        }       
     }
         
 }

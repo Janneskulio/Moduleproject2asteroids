@@ -19,7 +19,6 @@ public class Enemyprojectilesshoot : MonoBehaviour
     }
     void Update()
     {
-    
         instantiatecd -= 1 * Time.deltaTime;
     }
     void spawnenemyprojectile(Vector3 direction)
